@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ページタイトル</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="js/libs/jquery-mobile/jquery.mobile.min.css">
+    </head>
+    <body>
+
+        <div data-role="page" id="page1">
+
+            <div data-role="header">
+                <h1>ローダー（時間のかかる処理を実行する場合）</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                
+                <input type="button" value="ローダを表示（アイコンのみ）" id="show-loader1"/>
+                <input type="button" value="ローダを表示（テキストあり）" id="show-loader2"/>
+                <input type="button" value="ローダを非表示にする" id="hide-loader"/>
+
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4>ページフッタ(footer)</h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->        
+
+        <script src="js/libs/jquery/jquery.min.js"></script>
+        <script src="js/libs/jquery-mobile/jquery.mobile.min.js"></script>
+        <script>
+            $(function() {
+                $('#show-loader1').click(function() {
+                    // ローダー（くるくる回る画像）を表示
+                    $.mobile.loading("show");
+                });
+                $('#show-loader2').click(function() {
+                    // ローダーとともにテキストを表示
+                    $.mobile.loading("show", {text: "しばらくお待ちください", textVisible: true});
+                });
+                    // 表示中のローダーを消す
+                $('#hide-loader').click(function() {
+                    $.mobile.loading("hide");
+                });
+            });
+            
+        </script>
+    </body>
+</html>
